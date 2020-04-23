@@ -67,7 +67,7 @@ exports.isAuth = (req, res, next) => {
   let user = req.profile && req.auth && req.profile._id == req.auth._id;
   // console.log("IN AUTH ROUTES, WHAT IS IN req.auth:   ", req.auth);
   if (!user) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "Access denied",
     });
   }
@@ -76,7 +76,7 @@ exports.isAuth = (req, res, next) => {
 
 exports.isAdmin = (req, res, next) => {
   if (req.profile.role === 0) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "Admin resource! Access denied",
     });
   }
