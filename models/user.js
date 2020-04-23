@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    salt: true,
+    salt: String,
     role: {
       type: Number,
       default: 0,
@@ -70,5 +70,12 @@ userSchema.methods = {
     }
   },
 };
+
+// userSchema.methods.toJson = function () {
+//   let user = this.toObject();
+//   delete user.salt;
+//   delete user.hashed_password;
+//   return user;
+// };
 
 module.exports = mongoose.model("User", userSchema);
