@@ -10,6 +10,10 @@ const {
   remove,
   update,
   list,
+  listRelated,
+  listCategories,
+  listBySearch,
+  photo,
 } = require("../controllers/product");
 
 router.post("/product/create/:userId", requireSignin, isAuth, isAdmin, create);
@@ -30,8 +34,12 @@ router.put(
 );
 
 router.get("/products", list);
+router.get("/products/related/:productId", listRelated);
+router.get("/products/categories", listCategories);
 
 router.param("userId", userById);
 router.param("productId", productById);
+router.post("/products/by/search", listBySearch);
+router.get("/product/photo/:productId", photo);
 
 module.exports = router;
