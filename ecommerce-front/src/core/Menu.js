@@ -10,7 +10,6 @@ const isActive = (history, path) => {
 };
 
 const Menu = ({ history }) => {
-  console.log("WHAT IS HISTORY:   ", history);
   return (
     <div>
       <ul className="nav nav-tabs bg-primary">
